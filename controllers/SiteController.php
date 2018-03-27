@@ -2,10 +2,12 @@
 
 namespace app\controllers;
 
+use app\models\About;
 use app\models\Header;
 use app\models\Nav;
 use Yii;
 use yii\filters\AccessControl;
+use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
@@ -65,10 +67,11 @@ class SiteController extends Controller
     {
         $nav = Nav::find()->one();
         $header = Header::find()->one();
-
+        $about = About::find()->one();
         return $this->render('index',[
             'nav' => $nav,
-            'header' => $header
+            'header' => $header,
+            'about' => $about
         ]);
     }
 
@@ -83,9 +86,10 @@ class SiteController extends Controller
             return $this->goHome();
         }
 
+
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            return $this->redirect(['admin/index']) ;
         }
 
         $model->password = '';

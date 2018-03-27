@@ -6,6 +6,7 @@
  * Time: 12:33 AM
  */
 /* @var $header \app\models\Header */
+/* @var $this  \yii\web\View */
 ?>
 <header class="masthead text-center text-white d-flex">
     <div class="container my-auto">
@@ -23,3 +24,5 @@
         </div>
     </div>
 </header>
+<?php $this->registerJs("$('header.masthead').css('background-image', 'url(\"$header->img_path\")');",\yii\web\View::POS_LOAD); ?>
+

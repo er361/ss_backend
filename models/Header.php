@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\base\UserException;
 
 /**
  * This is the model class for table "header".
@@ -27,12 +28,17 @@ class Header extends \yii\db\ActiveRecord
 
     public function upload()
     {
-        $filePath = 'uploads/header/' . $this->file->baseName . '.' . $this->file->extension;
-        if ($this->file->saveAs($filePath)) {
-            $this->img_path = $filePath;
-            return true;
-        } else
-            return false;
+        if($this->validate(['file'])){
+            $filePath = 'uploads/header/' . $this->file->baseName . '.' . $this->file->extension;
+            if ($this->file->saveAs($filePath)) {
+                $this->img_path = $filePath;
+                return true;
+            } else
+                return false;
+        }else{
+            throw new UserException($this->getFirstError('file'));
+        }
+
     }
 
     /**
@@ -41,6 +47,7 @@ class Header extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['file'],'file','mimeTypes' => 'image/*','maxSize' => 10240000],
             [['title', 'muted', 'img_path', 'button_text'], 'required'],
             [['title', 'muted', 'img_path', 'button_text'], 'string', 'max' => 255],
         ];

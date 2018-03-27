@@ -10,7 +10,7 @@ $this->title = 'My Yii Application';
 
 <?= $this->render('_header.php',['header' => $header])?>
 
-<?= $this->render('_about')?>
+<?= $this->render('_about',['about' => $about])?>
 
 <?= $this->render('_services')?>
 

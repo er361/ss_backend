@@ -13,12 +13,12 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin([
             'options' => ['enctype' => 'multipart/form-data']
     ]); ?>
-
+    <input type="hidden" name="MAX_FILE_SIZE" value="10240000" />
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'muted')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'file')->fileInput(['accept' => 'image/*']) ?>
+    <?= $form->field($model, 'file')->fileInput(['accept' => 'image/*','']) ?>
 
     <?= $form->field($model, 'button_text')->textInput(['maxlength' => true]) ?>
 

@@ -98,7 +98,7 @@ class HeaderController extends Controller
                 $model->file = $file;
                 $model->upload();
             }
-            $model->save();
+            $model->save(false);
 
             return $this->redirect(['view', 'id' => $model->id]);
         }
