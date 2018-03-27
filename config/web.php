@@ -12,6 +12,14 @@ $config = [
         '@npm' => '@vendor/npm-asset',
     ],
     'components' => [
+        'view' => [
+            'renderers' => [
+                'tpl' => [
+                    'class' => 'yii\smarty\ViewRenderer',
+                    //'cachePath' => '@runtime/Smarty/cache',
+                ],
+            ],
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'sf7k',
@@ -43,13 +51,13 @@ $config = [
             ],
         ],
         'db' => $db,
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-                '<alias:\w+>' => 'site/<alias>',
-            ],
-        ],
+//        'urlManager' => [
+//            'enablePrettyUrl' => true,
+//            'showScriptName' => false,
+//            'rules' => [
+//                '<alias:\w+>' => 'site/<alias>',
+//            ],
+//        ],
     ],
     'params' => $params,
 ];
