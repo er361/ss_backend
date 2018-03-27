@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Header;
 use app\models\Nav;
 use Yii;
 use yii\filters\AccessControl;
@@ -63,7 +64,12 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $nav = Nav::find()->one();
-        return $this->render('index',['nav' => $nav]);
+        $header = Header::find()->one();
+
+        return $this->render('index',[
+            'nav' => $nav,
+            'header' => $header
+        ]);
     }
 
     /**

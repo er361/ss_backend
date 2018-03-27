@@ -4,21 +4,17 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Header */
+/* @var $model app\models\About */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="header-form">
+<div class="about-form">
 
-    <?php $form = ActiveForm::begin([
-            'options' => ['enctype' => 'multipart/form-data']
-    ]); ?>
+    <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'muted')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'file')->fileInput(['accept' => 'image/*']) ?>
+    <?= $form->field($model, 'text')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'button_text')->textInput(['maxlength' => true]) ?>
 

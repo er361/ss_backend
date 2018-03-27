@@ -16,8 +16,8 @@ class m180327_032604_header extends Migration
            'id' => $this->primaryKey(),
            'title' => $this->string()->notNull(),
            'muted' => $this->string()->notNull(),
-           'img-path' => $this->string()->notNull(),
-            'button-text' => $this->string()->notNull(),
+           'img_path' => $this->string()->notNull(),
+            'button_text' => $this->string()->notNull(),
         ]);
     }
 
@@ -26,9 +26,8 @@ class m180327_032604_header extends Migration
      */
     public function safeDown()
     {
-        echo "m180327_032604_header cannot be reverted.\n";
-
-        return false;
+       $this->dropTable('header');
+       return true;
     }
 
     /*

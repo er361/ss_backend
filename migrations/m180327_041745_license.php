@@ -24,9 +24,8 @@ class m180327_041745_license extends Migration
      */
     public function safeDown()
     {
-        echo "m180327_041745_license cannot be reverted.\n";
-
-        return false;
+        $this->dropTable('license');
+        return true;
     }
 
     /*

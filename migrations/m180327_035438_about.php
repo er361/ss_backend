@@ -16,7 +16,7 @@ class m180327_035438_about extends Migration
             'id' => $this->primaryKey(),
             'title' => $this->string()->notNull(),
             'text' => $this->string()->notNull(),
-            'button-text' => $this->string()->notNull()
+            'button_text' => $this->string()->notNull()
         ]);
 
     }
@@ -26,9 +26,8 @@ class m180327_035438_about extends Migration
      */
     public function safeDown()
     {
-        echo "m180327_035438_about cannot be reverted.\n";
-
-        return false;
+        $this->dropTable('about');
+        return true;
     }
 
     /*

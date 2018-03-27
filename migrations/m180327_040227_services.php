@@ -25,9 +25,8 @@ class m180327_040227_services extends Migration
      */
     public function safeDown()
     {
-        echo "m180327_040227_services cannot be reverted.\n";
-
-        return false;
+        $this->dropTable('services');
+        return true;
     }
 
     /*

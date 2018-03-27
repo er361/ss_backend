@@ -8,7 +8,7 @@ $this->title = 'My Yii Application';
 <!-- Navigation -->
 <?= $this->render('_nav.php',['nav' => $nav]) ?>
 
-<?= $this->render('_header.php'/*,['header' => $header]*/)?>
+<?= $this->render('_header.php',['header' => $header])?>
 
 <?= $this->render('_about')?>
 

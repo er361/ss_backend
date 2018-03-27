@@ -3,18 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Header;
+use app\models\Contact;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\web\Request;
-use yii\web\UploadedFile;
 
 /**
- * HeaderController implements the CRUD actions for Header model.
+ * ContactController implements the CRUD actions for Contact model.
  */
-class HeaderController extends Controller
+class ContactController extends Controller
 {
     public $layout = 'admin';
     /**
@@ -33,13 +31,13 @@ class HeaderController extends Controller
     }
 
     /**
-     * Lists all Header models.
+     * Lists all Contact models.
      * @return mixed
      */
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Header::find(),
+            'query' => Contact::find(),
         ]);
 
         return $this->render('index', [
@@ -48,7 +46,7 @@ class HeaderController extends Controller
     }
 
     /**
-     * Displays a single Header model.
+     * Displays a single Contact model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -61,18 +59,15 @@ class HeaderController extends Controller
     }
 
     /**
-     * Creates a new Header model.
+     * Creates a new Contact model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Header();
+        $model = new Contact();
 
-        if ($model->load(Yii::$app->request->post())) {
-            $model->file = UploadedFile::getInstance($model,'file');
-            if($model->upload())
-                $model->save();
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -82,7 +77,7 @@ class HeaderController extends Controller
     }
 
     /**
-     * Updates an existing Header model.
+     * Updates an existing Contact model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -92,14 +87,7 @@ class HeaderController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post())) {
-            $file = UploadedFile::getInstance($model, 'file');
-            if($file){
-                $model->file = $file;
-                $model->upload();
-            }
-            $model->save();
-
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -109,7 +97,7 @@ class HeaderController extends Controller
     }
 
     /**
-     * Deletes an existing Header model.
+     * Deletes an existing Contact model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -123,15 +111,15 @@ class HeaderController extends Controller
     }
 
     /**
-     * Finds the Header model based on its primary key value.
+     * Finds the Contact model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Header the loaded model
+     * @return Contact the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Header::findOne($id)) !== null) {
+        if (($model = Contact::findOne($id)) !== null) {
             return $model;
         }
 

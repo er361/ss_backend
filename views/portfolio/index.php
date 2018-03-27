@@ -6,15 +6,15 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Headers';
+$this->title = 'Portfolios';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="header-index">
+<div class="portfolio-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Header', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Portfolio', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -23,10 +23,9 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
+            'thumb_img_path',
+            'full_img_path',
             'title',
-            'muted',
-            'img_path',
-            'button_text',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

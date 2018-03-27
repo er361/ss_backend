@@ -6,15 +6,15 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Headers';
+$this->title = 'Services';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="header-index">
+<div class="services-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Header', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Services', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -24,9 +24,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'title',
-            'muted',
-            'img_path',
-            'button_text',
+            'text',
+            'code',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

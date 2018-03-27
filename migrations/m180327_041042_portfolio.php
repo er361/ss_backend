@@ -25,9 +25,8 @@ class m180327_041042_portfolio extends Migration
      */
     public function safeDown()
     {
-        echo "m180327_041042_portfolio cannot be reverted.\n";
-
-        return false;
+        $this->dropTable('portfolio');
+        return true;
     }
 
     /*

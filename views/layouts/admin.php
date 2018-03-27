@@ -43,7 +43,13 @@ try {
         'options' => ['class' => 'nav nav-pills'],
         'items' => [
             ['label' => 'Nav', 'url' => Url::to(['nav/index'])],
-            ['label' => 'Site', 'url' => Url::to(['site/index'])]
+            ['label' => 'Header','url' => Url::to(['header/index'])],
+            ['label' => 'About','url' => Url::to(['about/index'])],
+            ['label' => 'Portfolio','url' => Url::to(['portfolio/index'])],
+            ['label' => 'Services','url' => Url::to(['services/index'])],
+            ['label' => 'License','url' => Url::to(['license/index'])],
+            ['label' => 'Contact','url' => Url::to(['contact/index'])],
+            ['label' => 'Site', 'url' => Url::to(['site/index'])],
         ],
         'encodeLabels' => false
     ]);
