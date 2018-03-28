@@ -28,7 +28,7 @@ class AppAsset extends AssetBundle
         "vendor/magnific-popup/magnific-popup.css",
 //        "css/creative.min.css",
         "css/creative.css",
-//        "css/common.min.css"
+        "css/common.css"
     ];
 
     public $js = [
