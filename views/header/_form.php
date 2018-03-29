@@ -13,12 +13,19 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin([
             'options' => ['enctype' => 'multipart/form-data']
     ]); ?>
-    <input type="hidden" name="MAX_FILE_SIZE" value="10240000" />
+
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'muted')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'file')->fileInput(['accept' => 'image/*','']) ?>
+    <?= $form->field($model,'background_type')->dropDownList([
+        1 => 'video',
+        0 => 'image'
+    ]) ?>
+
+    <?= $form->field($model, 'imgFile')->fileInput(['accept' => 'image/*']) ?>
+
+    <?= $form->field($model, 'videoFile')->fileInput() ?>
 
     <?= $form->field($model, 'button_text')->textInput(['maxlength' => true]) ?>
 
@@ -29,3 +36,7 @@ use yii\widgets\ActiveForm;
     <?php ActiveForm::end(); ?>
 
 </div>
+<?$this->registerJsFile('js/admin.js',[
+        'depends' => \yii\web\JqueryAsset::class
+]);
+?>

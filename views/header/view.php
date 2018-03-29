@@ -33,6 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'muted',
             'img_path',
             'button_text',
+            'video_path'
         ],
     ]) ?>
 

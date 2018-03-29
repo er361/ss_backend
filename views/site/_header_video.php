@@ -9,7 +9,7 @@
 use yii\helpers\Url;
 
 ?>
-<div class="card bg-dark text-white">
+<div class="card bg-dark text-white rounded-0">
     <video class="card-img" src="<?= Url::to('uploads/header/la.mov')?>" autoplay loop></video>
     <div id="overlay-video" class="card-img-overlay">
         <div class="text-center text-white d-flex">

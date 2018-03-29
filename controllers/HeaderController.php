@@ -92,14 +92,32 @@ class HeaderController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post())) {
-            $file = UploadedFile::getInstance($model, 'file');
-            if($file){
-                $model->file = $file;
-                $model->upload();
-            }
-            $model->save(false);
+        $request = Yii::$app->request;
+        if ($model->load($request->post())) {
+            $header = $request->post('Header');
+            $background_type = $header['background_type'];
+            if($background_type == 1) {
+                /*upload video*/
+                $file = UploadedFile::getInstance($model,'videoFile');
+                //проверяем есть ли файл?
+                // ибо при обновлении может и не быть
+                if($file){
+                    /* назначаем атрибуту модели этот файл
+                        без него невозможно будет сохранить файл */
+                    $model->videoFile = $file;
+                    $model->upload('videoFile','video_path');
+                }
+                $model->update(false);
 
+            }else{
+                /*upload image */
+                $file = UploadedFile::getInstance($model,'imgFile');
+                if($file){
+                    $model->imgFile = $file;
+                    $model->upload();
+                }
+                $model->update(false);
+            }
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

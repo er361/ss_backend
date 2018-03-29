@@ -21,13 +21,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
             'id',
             'title',
             'muted',
             'img_path',
             'button_text',
-
+            'video_path',
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
