@@ -1,14 +1,14 @@
 <?php
 
 /* @var $this yii\web\View */
-
+/* @var $header \app\models\Header */
 $this->title = 'My Yii Application';
 ?>
 
 <!-- Navigation -->
 <?= $this->render('_nav.php', ['nav' => $nav]) ?>
 
-<? if (false): ?>
+<? if ($header->background_type == 0): ?>
     <?= $this->render('_header_img.php', ['header' => $header]) ?>
 <? else: ?>
     <?= $this->render('_header_video.php', ['header' => $header]) ?>

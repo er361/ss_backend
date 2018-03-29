@@ -33,7 +33,16 @@ $this->params['breadcrumbs'][] = $this->title;
             'muted',
             'img_path',
             'button_text',
-            'video_path'
+            'video_path',
+            [
+                'label' => 'background_type',
+                'value' => function ($model) {
+                    if ($model->background_type == 0)
+                        return 'image';
+                    else
+                        return 'video';
+                }
+            ]
         ],
     ]) ?>
 

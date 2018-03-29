@@ -10,7 +10,7 @@ use yii\helpers\Url;
 
 ?>
 <div class="card bg-dark text-white rounded-0">
-    <video class="card-img" src="<?= Url::to('uploads/header/la.mov')?>" autoplay loop></video>
+    <video class="card-img" src="<?= Url::to($header->video_path)?>" autoplay loop></video>
     <div id="overlay-video" class="card-img-overlay">
         <div class="text-center text-white d-flex">
             <div style="margin-top: 25vh !important;" class="container my-auto">
