@@ -1,0 +1,1 @@
+INSERT INTO ss.nav (id, about, services, portfolio, license, contact) VALUES (1, 'О нас', 'Услуги', 'Портфолио', 'Лицензия', 'Контакты');

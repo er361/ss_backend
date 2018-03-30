@@ -1,0 +1,1 @@
+INSERT INTO ss.header (id, title, muted, img_path, button_text) VALUES (3, 'АРХИТЕКТУРНОЕ ПРОЕКТИРОВАНИЕ', 'Полное сопровождение проекта от идеи заказчика до ввода в эксплуатацию объект', 'uploads/header/Screenshot from 2018-03-20 14-05-26.png', 'узнать больше');

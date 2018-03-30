@@ -1,0 +1,9 @@
+INSERT INTO ss.migration (version, apply_time) VALUES ('m000000_000000_base', 1522120809);
+INSERT INTO ss.migration (version, apply_time) VALUES ('m141018_105939_create_table_upload', 1522127591);
+INSERT INTO ss.migration (version, apply_time) VALUES ('m180325_195815_nav', 1522120811);
+INSERT INTO ss.migration (version, apply_time) VALUES ('m180327_032604_header', 1522126886);
+INSERT INTO ss.migration (version, apply_time) VALUES ('m180327_035438_about', 1522126886);
+INSERT INTO ss.migration (version, apply_time) VALUES ('m180327_040227_services', 1522126886);
+INSERT INTO ss.migration (version, apply_time) VALUES ('m180327_041042_portfolio', 1522126886);
+INSERT INTO ss.migration (version, apply_time) VALUES ('m180327_041745_license', 1522126886);
+INSERT INTO ss.migration (version, apply_time) VALUES ('m180327_041951_contact', 1522126886);

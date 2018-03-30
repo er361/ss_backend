@@ -36,7 +36,7 @@ use yii\widgets\ActiveForm;
     <?php ActiveForm::end(); ?>
 
 </div>
-<?$this->registerJsFile('js/admin.js',[
+<?$this->registerJsFile('@web/js/admin.js',[
         'depends' => \yii\web\JqueryAsset::class
 ]);
 ?>

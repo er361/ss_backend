@@ -43,6 +43,14 @@ class Header extends \yii\db\ActiveRecord
         }
     }
 
+    public function getType()
+    {
+        if ($this->background_type == 0)
+            return 'image';
+        else
+            return 'video';
+    }
+
     /**
      * @inheritdoc
      */

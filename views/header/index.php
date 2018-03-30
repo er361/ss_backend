@@ -27,6 +27,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'img_path',
             'button_text',
             'video_path',
+            [
+                    'attribute' => 'background_type',
+                    'value' => function($model){return $model->getType();}
+                    ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
