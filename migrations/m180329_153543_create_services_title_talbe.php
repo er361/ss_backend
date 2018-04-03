@@ -12,7 +12,11 @@ class m180329_153543_create_services_title_talbe extends Migration
      */
     public function safeUp()
     {
-        $this->createTable('service')
+        $this->createTable('page_titles',[
+           'id' => $this->primaryKey(),
+           'text' => $this->string(),
+           'code' => $this->string()
+        ]);
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\PageTitles;
 use Yii;
 use app\models\Services;
 use yii\data\ActiveDataProvider;
@@ -36,6 +37,7 @@ class ServicesController extends Controller
      */
     public function actionIndex()
     {
+
         $dataProvider = new ActiveDataProvider([
             'query' => Services::find(),
         ]);
@@ -67,12 +69,15 @@ class ServicesController extends Controller
     {
         $model = new Services();
 
+        $pageTitleModel = PageTitles::findOne(['code' => 'services']);
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
             'model' => $model,
+            'ptModel' => $pageTitleModel
         ]);
     }
 

@@ -1,5 +1,6 @@
 <?php
 
+use app\components\PageTitleWidget;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
@@ -16,6 +17,10 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Create Services', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
+
+    <blockquote>
+        <?= PageTitleWidget::widget(['code' => 'services'])?>
+    </blockquote>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

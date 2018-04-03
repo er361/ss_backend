@@ -5,12 +5,15 @@
  * Date: 3/26/18
  * Time: 12:34 AM
  */
+use app\models\PageTitles;
+use app\models\Services;
+
 ?>
 <section id="services">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading">Услуги по проектированию</h2>
+                <h2 class="section-heading"><?= PageTitles::findOne(['code' => 'services'])->text?></h2>
                 <hr class="my-4">
             </div>
         </div>
@@ -20,22 +23,22 @@
             <div class="col text-center">
                 <div class="service-box mt-5 mx-auto">
                     <img src="./img/icons/bc.svg" width="150" height="90" />
-                    <h3 class="mb-3">Бизнес центры</h3>
-                    <p class="text-muted mb-0">Надо придумать текст о том как тяжело проектировать бизнес центры</p>
+                    <h3 class="mb-3"><?= Services::getModelByCode('BC')->title?></h3>
+                    <p class="text-muted mb-0"><?=Services::getModelByCode('BC')->text?></p>
                 </div>
             </div>
             <div class="col text-center">
                 <div class="service-box mt-5 mx-auto">
                     <img src="./img/icons/apartment.svg" width="150" height="90" />
-                    <h3 class="mb-3">Жилые комплексы</h3>
-                    <p class="text-muted mb-0">We update dependencies to keep things fresh.</p>
+                    <h3 class="mb-3"><?= Services::getModelByCode('GK')->title?></h3>
+                    <p class="text-muted mb-0"><?=Services::getModelByCode('GK')->text?></p>
                 </div>
             </div>
             <div class="col text-center">
                 <div class="service-box mt-5 mx-auto">
-                    <img src="./img/icons/hospital.svg" width="150" height="100" />
-                    <h3 class="mb-3">Общественные</h3>
-                    <p class="text-muted mb-0">You have to make your websites with love these days!</p>
+                    <img  src="./img/icons/hospital.svg" width="150" height="90" />
+                    <h3 class="mb-3"><?= Services::getModelByCode('OBW')->title?></h3>
+                    <p class="text-muted mb-0"><?=Services::getModelByCode('OBW')->text?></p>
                 </div>
             </div>
         </div>
@@ -43,22 +46,22 @@
             <div class="col text-center">
                 <div class="service-box mt-5 mx-auto">
                     <img src="./img/icons/method-draw-image.svg" width="100" height="90" />
-                    <h3 class="mb-3">Спорткомплексы</h3>
-                    <p class="text-muted mb-0">You have to make your websites with love these days!</p>
+                    <h3 class="mb-3"><?= Services::getModelByCode('SK')->title?></h3>
+                    <p class="text-muted mb-0"><?=Services::getModelByCode('SK')->text?></p>
                 </div>
             </div>
             <div class="col text-center">
                 <div class="service-box mt-5 mx-auto">
                     <img src="./img/icons/factory.svg" width="150" height="90" />
-                    <h3 class="mb-3">Производственные</h3>
-                    <p class="text-muted mb-0">Тут специфический текст относящися к проектированию бизнес центра </p>
+                    <h3 class="mb-3"><?= Services::getModelByCode('PR')->title?></h3>
+                    <p class="text-muted mb-0"><?=Services::getModelByCode('PR')->text?></p>
                 </div>
             </div>
             <div class="col text-center">
                 <div class="service-box mt-5 mx-auto">
                     <img src="./img/icons/restoran.svg" width="90" height="90" />
-                    <h3 class="mb-3">Кафе и рестораны</h3>
-                    <p class="text-muted mb-0">Тут специфический текст относящися к проектированию бизнес центра </p>
+                    <h3 class="mb-3"><?= Services::getModelByCode('K&R')->title?></h3>
+                    <p class="text-muted mb-0"><?=Services::getModelByCode('K&R')->text?></p>
                 </div>
             </div>
         </div>

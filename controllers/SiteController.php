@@ -68,6 +68,7 @@ class SiteController extends Controller
         $nav = Nav::find()->one();
         $header = Header::find()->one();
         $about = About::find()->one();
+
         return $this->render('index',[
             'nav' => $nav,
             'header' => $header,

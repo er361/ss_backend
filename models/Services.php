@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\web\NotFoundHttpException;
 
 /**
  * This is the model class for table "services".
@@ -44,5 +45,14 @@ class Services extends \yii\db\ActiveRecord
             'text' => 'Text',
             'code' => 'Code',
         ];
+    }
+
+    public static function getModelByCode($code)
+    {
+        $one = self::findOne(['code' => $code]);
+        if($one)
+            return $one;
+        else
+            throw new NotFoundHttpException('model not found by code - '.$code);
     }
 }
