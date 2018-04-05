@@ -45,7 +45,7 @@ class License extends \yii\db\ActiveRecord
     {
         $uploadDir = 'uploads/license/';
         if (!file_exists($uploadDir))
-            FileHelper::createDirectory($uploadDir, 777);
+            FileHelper::createDirectory($uploadDir, 0777);
 
         $fullPath = $uploadDir . $this->file->baseName . '.' . $this->file->extension;
 

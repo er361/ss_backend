@@ -23,9 +23,11 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'thumb_img_path',
+//            'thumb_img_path',
             'full_img_path',
             'title',
+            'pos',
+            'category',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

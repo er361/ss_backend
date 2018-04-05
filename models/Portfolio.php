@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\FileHelper;
 
 /**
  * This is the model class for table "portfolio".
@@ -11,9 +12,12 @@ use Yii;
  * @property string $thumb_img_path
  * @property string $full_img_path
  * @property string $title
+ * @property int $pos
+ * * @property string $category
  */
 class Portfolio extends \yii\db\ActiveRecord
 {
+    public $file;
     /**
      * @inheritdoc
      */
@@ -28,8 +32,10 @@ class Portfolio extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['thumb_img_path', 'full_img_path', 'title'], 'required'],
-            [['thumb_img_path', 'full_img_path', 'title'], 'string', 'max' => 255],
+            [['file'],'file','mimeTypes' => 'image/*','skipOnEmpty' => true],
+            [['full_img_path', 'title'], 'required'],
+            [['full_img_path', 'title', 'category'], 'string', 'max' => 255],
+            [['pos'], 'integer'],
         ];
     }
 
@@ -40,9 +46,28 @@ class Portfolio extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'thumb_img_path' => 'Thumb Img Path',
+//            'thumb_img_path' => 'Thumb Img Path',
             'full_img_path' => 'Full Img Path',
             'title' => 'Title',
+            'pos' => 'Pos',
+            'category' => 'Category',
         ];
+    }
+
+    public function upload()
+    {
+        $uploadDir = 'uploads/portfolio/';
+        if (!file_exists($uploadDir))
+            FileHelper::createDirectory($uploadDir, 0777);
+
+        $fullPath = $uploadDir . $this->file->baseName . '.' . $this->file->extension;
+
+        if ($this->validate(['file']) &&
+            $this->file->saveAs($fullPath)) {
+            $this->full_img_path = $fullPath;
+            return true;
+        }
+
+        return false;
     }
 }

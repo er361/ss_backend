@@ -8,6 +8,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * PortfolioController implements the CRUD actions for Portfolio model.
@@ -15,6 +16,7 @@ use yii\filters\VerbFilter;
 class PortfolioController extends Controller
 {
     public $layout = 'admin';
+
     /**
      * @inheritdoc
      */
@@ -67,8 +69,13 @@ class PortfolioController extends Controller
     {
         $model = new Portfolio();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $file = UploadedFile::getInstance($model, 'file');
+            $model->file = $file;
+            if ($model->upload()) {
+                $model->save(false);
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         }
 
         return $this->render('create', [
@@ -87,7 +94,13 @@ class PortfolioController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $file = UploadedFile::getInstance($model,'file');
+            if($file){
+                $model->file = $file;
+                $model->upload();
+            }
+            $model->update(false);
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
