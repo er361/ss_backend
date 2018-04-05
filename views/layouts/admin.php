@@ -49,6 +49,7 @@ try {
             ['label' => 'Services','url' => Url::to(['services/index'])],
             ['label' => 'License','url' => Url::to(['license/index'])],
             ['label' => 'Contact','url' => Url::to(['contact/index'])],
+            ['label' => 'Zayavki','url' => Url::to(['zayavka/index'])],
             ['label' => 'Site', 'url' => Url::to(['site/index'])],
         ],
         'encodeLabels' => false
