@@ -1,5 +1,7 @@
 <?php
 
+use app\components\PageTitleWidget;
+use app\models\License;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
@@ -17,6 +19,10 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create License', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
+    <blockquote>
+        <?= PageTitleWidget::widget(['code' => 'license']) ?>
+    </blockquote>
+
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
@@ -25,7 +31,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'title',
             'img_path',
-
+            [
+                'attribute' => 'position',
+                'value' => function ($model) {
+                    return License::getPosition($model->position);
+                }
+            ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

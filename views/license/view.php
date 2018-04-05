@@ -1,5 +1,6 @@
 <?php
 
+use app\models\License;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
@@ -31,6 +32,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'title',
             'img_path',
+            [
+                'attribute' => 'position',
+                'value' => function ($model) {
+                    return License::getPosition($model->position);
+                }
+            ]
         ],
     ]) ?>
 

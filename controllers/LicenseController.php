@@ -8,6 +8,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * LicenseController implements the CRUD actions for License model.
@@ -67,8 +68,13 @@ class LicenseController extends Controller
     {
         $model = new License();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $file = UploadedFile::getInstance($model,'file');
+            $model->file = $file;
+            if($model->upload()){
+                $model->save(true,['title','img_path','position']);
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         }
 
         return $this->render('create', [
@@ -87,8 +93,17 @@ class LicenseController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $file = UploadedFile::getInstance($model,'file');
+            if($file){
+                $model->file = $file;
+                if($model->upload())
+                    $model->update(true,['title','img_path','position']);
+            }else{
+                $model->update(true);
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+
         }
 
         return $this->render('update', [
