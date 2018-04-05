@@ -22,4 +22,4 @@ $this->title = 'My Yii Application';
 
 <?= $this->render('_license') ?>
 
-<?= $this->render('_contact.php') ?>
+<?= $this->render('_contact.php', ['contact' => $contact]) ?>

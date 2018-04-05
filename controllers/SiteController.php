@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\About;
+use app\models\Contact;
 use app\models\Header;
 use app\models\Nav;
 use Yii;
@@ -68,11 +69,12 @@ class SiteController extends Controller
         $nav = Nav::find()->one();
         $header = Header::find()->one();
         $about = About::find()->one();
-
+        $contact = Contact::find()->one();
         return $this->render('index',[
             'nav' => $nav,
             'header' => $header,
-            'about' => $about
+            'about' => $about,
+            'contact' => $contact
         ]);
     }
 

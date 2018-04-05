@@ -11,7 +11,7 @@ use Yii;
  * @property string $title
  * @property string $text
  * @property string $phone
- * @property string $e-mail
+ * @property string $e_mail
  */
 class Contact extends \yii\db\ActiveRecord
 {
