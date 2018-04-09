@@ -17,14 +17,12 @@ use app\models\Portfolio;
             <? foreach ($imgs as $img): ?>
                 <div class="col-lg-4 col-sm-6">
                     <a class="portfolio-box" id="<?= $img->title ?>" href="<?= $img->full_img_path ?>">
+<!--                        <span class="img-desc">--><?//=$img->getDesc()?><!--</span>-->
                         <img class="img-fluid" src="<?= $img->full_img_path ?>" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
                                     <?= $img->category ?>
-                                </div>
-                                <div class="project-name">
-                                    <?= $img->title ?>
                                 </div>
                             </div>
                         </div>

@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use function Sodium\add;
 use Yii;
 use yii\helpers\FileHelper;
 
@@ -18,6 +19,11 @@ use yii\helpers\FileHelper;
 class Portfolio extends \yii\db\ActiveRecord
 {
     public $file;
+
+    public $desc;
+
+
+
     /**
      * @inheritdoc
      */
@@ -38,6 +44,7 @@ class Portfolio extends \yii\db\ActiveRecord
             [['pos'], 'integer'],
         ];
     }
+
 
     /**
      * @inheritdoc
@@ -69,5 +76,13 @@ class Portfolio extends \yii\db\ActiveRecord
         }
 
         return false;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDesc()
+    {
+        return $this->title;
     }
 }

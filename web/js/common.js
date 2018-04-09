@@ -25,7 +25,9 @@ $('.popup-gallery').on('mfpChange', function (e,s) {
     setTimeout(function () {
         var $mfp = $('.mfp-title');
         // console.log($mfp);
-        $mfp.html('<p>' + title + '</p>');
+        $mfp.html('<p class="img-text">' + title + '</p>');
     },200);
 
 });
+
+
