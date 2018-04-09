@@ -32,7 +32,7 @@ class AppAsset extends AssetBundle
     ];
 
     public $js = [
-        "vendor/jquery/jquery.min.js",
+//        "vendor/jquery/jquery.min.js",
         "vendor/bootstrap/js/bootstrap.bundle.min.js",
         "vendor/jquery-easing/jquery.easing.min.js",
         "vendor/scrollreveal/scrollreveal.min.js",
@@ -41,6 +41,10 @@ class AppAsset extends AssetBundle
         "js/common.js",
         "https://api-maps.yandex.ru/2.1/?lang=ru_RU",
         "js/map_setup.js"
+    ];
+
+    public $depends = [
+        'yii\web\JqueryAsset'
     ];
 
 }

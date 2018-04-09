@@ -7,3 +7,10 @@
 #p-heading{
     font-size: 1.5rem;
 }
+#img-text {
+    position: absolute;
+    top: 10px;
+    text-align: center;
+    width: 100%;
+    color: white;
+}

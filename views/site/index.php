@@ -18,7 +18,7 @@ $this->title = 'My Yii Application';
 
 <?= $this->render('_services') ?>
 
-<?= $this->render('_portfolio') ?>
+<?= $this->render('_portfolio',['imgs' => $imgs]) ?>
 
 <?= $this->render('_license') ?>
 

@@ -6,6 +6,7 @@ use app\models\About;
 use app\models\Contact;
 use app\models\Header;
 use app\models\Nav;
+use app\models\Portfolio;
 use Yii;
 use yii\filters\AccessControl;
 use yii\helpers\Url;
@@ -70,11 +71,13 @@ class SiteController extends Controller
         $header = Header::find()->one();
         $about = About::find()->one();
         $contact = Contact::find()->one();
+        $imgs = Portfolio::find()->orderBy('pos')->all();
         return $this->render('index',[
             'nav' => $nav,
             'header' => $header,
             'about' => $about,
-            'contact' => $contact
+            'contact' => $contact,
+            'imgs' => $imgs
         ]);
     }
 
