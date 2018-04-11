@@ -100,7 +100,7 @@ class PortfolioController extends Controller
                 $model->file = $file;
                 $model->upload();
             }
-            $model->update(false);
+            $model->update(['full_img_path','title']);
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

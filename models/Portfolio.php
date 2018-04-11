@@ -4,6 +4,7 @@ namespace app\models;
 
 use function Sodium\add;
 use Yii;
+use yii\base\ErrorException;
 use yii\helpers\FileHelper;
 
 /**
@@ -23,7 +24,6 @@ class Portfolio extends \yii\db\ActiveRecord
     public $desc;
 
 
-
     /**
      * @inheritdoc
      */
@@ -38,7 +38,7 @@ class Portfolio extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['file'],'file','mimeTypes' => 'image/*','skipOnEmpty' => true],
+            [['file'], 'file', 'mimeTypes' => 'image/*', 'skipOnEmpty' => true],
             [['full_img_path', 'title'], 'required'],
             [['full_img_path', 'title', 'category'], 'string', 'max' => 255],
             [['pos'], 'integer'],
