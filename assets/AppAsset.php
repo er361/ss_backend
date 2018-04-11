@@ -40,7 +40,8 @@ class AppAsset extends AssetBundle
         "js/creative.min.js",
         "js/common.js",
         "https://api-maps.yandex.ru/2.1/?lang=ru_RU",
-        "js/map_setup.js"
+        "js/map_setup.js",
+        "js/jquery.mask.min.js"
     ];
 
     public $depends = [

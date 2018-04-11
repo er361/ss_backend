@@ -37,46 +37,17 @@ use yii\widgets\Pjax;
                 <p><?= $contact->phone ?></p>
             </div>
             <div class="col-lg-4 mr-auto text-center">
-                <div class="zayavka-form">
-                        <? $model = new \app\models\Zayavka(); ?>
-                        <?php $form = ActiveForm::begin([
-                            'action' => ['zayavka/create'],
-//                            'options' => ['data-pjax' => true]
-                        ]); ?>
-
-                            <div class="form-group">
-                                <?= $form->field($model, 'name')
-                                    ->textInput(['maxlength' => true,
-                                        'placeholder' => 'Ваше имя'])
-                                    ->label(false)
-                                ?>
-                            </div>
-
-                            <?= $form->field($model, 'phone')
-                                ->textInput(['maxlength' => true,
-                                    'placeholder' => 'Ваш телефон'])
-                                ->label(false) ?>
-
-                            <?= $form->field($model, 'e_mail')
-                                ->textInput(['maxlength' => true,
-                                    'placeholder' => 'E-mail'])
-                                ->label(false)
-                            ?>
-
-                            <?= $form->field($model, 'area')
-                                ->textInput([
-                                    'maxlength' => true,
-                                    'placeholder' => 'Площадь помещения'
-                                ])->label(false) ?>
-
-                            <div class="form-group">
-                                <?= Html::submitButton('Оставить заявку', [
-                                        'class' => 'btn btn-primary btn-block rounded',
-                                    'disabled' => true]) ?>
-                            </div>
-
-                        <?php ActiveForm::end(); ?>
-                </div>
+                <form method="post" action="<?=\yii\helpers\Url::to(['zayavka/create'])?>">
+                    <input  id="form-token" type="hidden" name="<?=Yii::$app->request->csrfParam?>"
+                           value="<?=Yii::$app->request->csrfToken?>"/>
+                    <div class="form-group">
+                        <input name="name" type="text"  class="form-control" required  placeholder="Имя">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="phone" class="form-control" id="phone_number"  required placeholder="Номер телефона">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block rounded">Submit</button>
+                </form>
             </div>
             <div class="col-lg-4 mr-auto text-center">
                 <i class="fa fa-envelope-o fa-3x mb-3 sr-contact"></i>
@@ -88,3 +59,7 @@ use yii\widgets\Pjax;
         </div>
     </div>
 </section>
+<?
+    /* @var $this \yii\web\View */
+    $this->registerJs('$(\'#phone_number\').mask(\'+(000)000-00-00\',{placeholder: "+7(***)***-**-**"});');
+?>

@@ -16,6 +16,7 @@ class ZayavkaController extends Controller
 {
 
     public $layout = 'admin';
+
     /**
      * @inheritdoc
      */
@@ -68,11 +69,15 @@ class ZayavkaController extends Controller
     {
         $model = new Zayavka();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('zv',
-                'Ваша заявка принята, в ближайшее время с вами свяжеться наш менеджер');
+        $request = Yii::$app->request;
+        if ($request->isPost) {
+            $model->name = $request->post('name');
+            $model->phone = $request->post('phone');
+            if ($model->save())
+                Yii::$app->session->setFlash('zv',
+                    'Ваша заявка принята, в ближайшее время с вами свяжеться наш менеджер');
         }
-        return $this->goBack();
+        return $this->goHome();
     }
 
     /**
