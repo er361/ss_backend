@@ -5,6 +5,7 @@ namespace app\models;
 use function Sodium\add;
 use Yii;
 use yii\base\ErrorException;
+use yii\db\Exception;
 use yii\helpers\FileHelper;
 
 /**
@@ -38,7 +39,7 @@ class Portfolio extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['file'], 'file', 'mimeTypes' => 'image/*', 'skipOnEmpty' => true],
+            [['file'], 'file', 'skipOnEmpty' => true],
             [['full_img_path', 'title'], 'required'],
             [['full_img_path', 'title', 'category'], 'string', 'max' => 255],
             [['pos'], 'integer'],
@@ -69,13 +70,17 @@ class Portfolio extends \yii\db\ActiveRecord
 
         $fullPath = $uploadDir . $this->file->baseName . '.' . $this->file->extension;
 
-        if ($this->validate(['file']) &&
-            $this->file->saveAs($fullPath)) {
-            $this->full_img_path = $fullPath;
-            return true;
+        if ($this->validate(['file'])) {
+            if($this->file->saveAs($fullPath)){
+                $this->full_img_path = $fullPath;
+                return true;
+            }
+        }else{
+            var_dump($this->getErrors());
+            die('ss');
         }
 
-        return false;
+
     }
 
     /**

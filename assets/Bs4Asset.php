@@ -9,7 +9,19 @@
 namespace app\assets;
 
 
-class Bs4Asset
-{
+use yii\web\AssetBundle;
 
+class Bs4Asset extends AssetBundle
+{
+    public $basePath = '@webroot/vendor/bootstrap';
+    public $baseUrl = '@web/vendor/bootstrap';
+    public $css = [
+        'css/bootstrap.min.css'
+    ];
+    public $js = [
+        'js/bootstrap.bundle.min.js'
+    ];
+    public $depends = [
+        'yii\web\JqueryAsset'
+    ];
 }

@@ -13,14 +13,14 @@ use yii\widgets\Pjax;
 
 /* @var $contact \app\models\Contact */
 ?>
-<?if(Yii::$app->session->hasFlash('zv')):?>
-    <?= Alert::widget([
-        'options' => [
-            'class' => 'alert-info',
-        ],
-        'body' => Yii::$app->session->getFlash('zv'),
-    ])?>
-<?endif;?>
+<?//if(Yii::$app->session->hasFlash('zv')):?>
+<!--    --><?//= Alert::widget([
+//        'options' => [
+//            'class' => 'alert-info',
+//        ],
+//        'body' => Yii::$app->session->getFlash('zv'),
+//    ])?>
+<?//endif;?>
 <section class="font-weight-bold pt-0" id="contact">
     <div class="mb-5" id="map" style="height:500px;width:100%"></div>
     <div class="container mt-5">

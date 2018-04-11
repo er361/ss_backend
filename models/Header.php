@@ -57,7 +57,7 @@ class Header extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['imgFile'], 'file', 'mimeTypes' => 'image/*', 'maxSize' => 10240000],
+            [['imgFile'], 'file', 'maxSize' => 10240000],
             [['videoFile'], 'file'],
             [['title', 'muted', 'img_path', 'button_text'], 'required'],
             [['title', 'muted', 'img_path', 'button_text', 'video_path', 'background_type'], 'string', 'max' => 255],

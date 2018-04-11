@@ -35,7 +35,7 @@ class License extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['file'], 'file','mimeTypes' => 'image/*'],
+            [['file'], 'file', 'skipOnEmpty' => true],
             [['title', 'img_path'], 'required'],
             [['title', 'img_path', 'position'], 'string', 'max' => 255],
         ];
