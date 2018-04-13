@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c0cf1809fa7ed46b141fb611121a15f7",
+    "content-hash": "c0f317a8bae96c8dcd6920dc432eb640",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -410,6 +410,20 @@
                 "yii"
             ],
             "time": "2016-11-07T09:01:26+00:00"
+        },
+        {
+            "name": "npm-asset/inputmask",
+            "version": "3.3.11",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/inputmask/-/inputmask-3.3.11.tgz",
+                "reference": null,
+                "shasum": null
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
         },
         {
             "name": "smarty/smarty",

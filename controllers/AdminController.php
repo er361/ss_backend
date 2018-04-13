@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\PageTitles;
 use yii\filters\AccessControl;
 
 class AdminController extends \yii\web\Controller
@@ -33,7 +34,8 @@ class AdminController extends \yii\web\Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        $model = PageTitles::getModel('icon');
+        return $this->render('index',['model' => $model]);
     }
 
 }

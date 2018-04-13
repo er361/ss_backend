@@ -13,6 +13,7 @@ use app\models\PageTitles;
 use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
+use yii\web\UploadedFile;
 
 class PageTitleController extends Controller
 {
@@ -34,24 +35,16 @@ class PageTitleController extends Controller
         $code = ArrayHelper::getValue($_POST, 'PageTitles.code');
         $session = \Yii::$app->session;
 
-        $model = $this->getModel($code);
+        $model = PageTitles::getModel($code);
         $model->load(\Yii::$app->request->post());
-
-
+        $file = UploadedFile::getInstance($model,'file');
+        if($file){
+            $model->file = $file;
+            $model->upload();
+        }
         if ($model->save())
             $session->setFlash('title','title created successfully');
 
         $this->redirect(['admin/index']);
-    }
-
-    protected function getModel($code)
-    {
-        $one = PageTitles::findOne(['code' => $code]);
-        if ($one)
-            return $one;
-        else {
-            $pageTitles = new PageTitles(['code' => $code]);
-            return $pageTitles;
-        }
     }
 }

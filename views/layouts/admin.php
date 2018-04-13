@@ -42,6 +42,7 @@ try {
     echo NavX::widget([
         'options' => ['class' => 'nav nav-pills'],
         'items' => [
+            ['label' => 'Admin', 'url' => Url::to(['admin/index'])],
             ['label' => 'Nav', 'url' => Url::to(['nav/index'])],
             ['label' => 'Header','url' => Url::to(['header/index'])],
             ['label' => 'About','url' => Url::to(['about/index'])],
